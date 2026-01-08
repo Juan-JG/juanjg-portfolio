@@ -53,7 +53,12 @@ geometry.center();
 
 const material = new THREE.MeshBasicMaterial({ color: 0xff0000 }); 
 const heart = new THREE.Mesh(geometry, material);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); // Luz general
+scene.add(ambientLight);
 
+const pointLight = new THREE.PointLight(0xffffff, 10); // Luz puntual para dar brillo
+pointLight.position.set(5, 5, 5);
+scene.add(pointLight);
 // 5. Orientación
 heart.rotation.x = Math.PI; // Girar en X suele funcionar mejor para Shapes
 scene.add(heart);
