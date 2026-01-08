@@ -51,7 +51,7 @@ const mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial() );
 // Esto es importante para que rote sobre su propio eje y no desde una esquina
 geometry.center(); 
 
-const material = new THREE.MeshBasicMaterial({ color: 0xff0000 }); 
+const material = new THREE.MeshStandardMaterial({ color: 0xff0000 }); 
 const heart = new THREE.Mesh(geometry, material);
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.5); // Luz general
 scene.add(ambientLight);
