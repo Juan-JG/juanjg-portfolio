@@ -1,15 +1,16 @@
 {
   "name": "juanjg-portfolio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Portafolio profesional con Three.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
-  "author": "",
+  "author": "Juan Jana",
   "license": "ISC",
-  "type": "commonjs",
   "dependencies": {
     "three": "^0.182.0"
   },

@@ -10,7 +10,7 @@ renderer.setAnimationLoop( animate );
 container.appendChild(renderer.domElement);
 
 window.addEventListener('resize', () => {
-    
+
   const width = window.innerWidth;
   const height = window.innerHeight;
 
@@ -21,18 +21,45 @@ window.addEventListener('resize', () => {
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 });
 
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
 
-camera.position.z = 5;
+// 1. Corregir posición de cámara (¡FUNDAMENTAL!)
+camera.position.set(0, 0, 200);
 
+// 2. Crear la forma del corazón (2D)
+const heartShape = new THREE.Shape();
+heartShape.moveTo( 25, 25 );
+heartShape.bezierCurveTo( 25, 25, 20, 0, 0, 0 );
+heartShape.bezierCurveTo( - 30, 0, - 30, 35, - 30, 35 );
+heartShape.bezierCurveTo( - 30, 55, - 10, 77, 25, 95 );
+heartShape.bezierCurveTo( 60, 77, 80, 55, 80, 35 );
+heartShape.bezierCurveTo( 80, 35, 80, 0, 50, 0 );
+heartShape.bezierCurveTo( 35, 0, 25, 25, 25, 25 );
+
+const extrudeSettings = {
+	depth: 8,
+	bevelEnabled: true,
+	bevelSegments: 2,
+	steps: 2,
+	bevelSize: 1,
+	bevelThickness: 1
+};
+
+const geometry = new THREE.ExtrudeGeometry( heartShape, extrudeSettings );
+const mesh = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial() );
+
+// 4. Centrar la geometría
+// Esto es importante para que rote sobre su propio eje y no desde una esquina
+geometry.center(); 
+
+const material = new THREE.MeshBasicMaterial({ color: 0xff0000 }); 
+const heart = new THREE.Mesh(geometry, material);
+
+// 5. Orientación
+heart.rotation.x = Math.PI; // Girar en X suele funcionar mejor para Shapes
+scene.add(heart);
+
+// 6. Animación
 function animate() {
-
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-
-  renderer.render( scene, camera );
-
+  heart.rotation.y += 0.01;
+  renderer.render(scene, camera);
 }
