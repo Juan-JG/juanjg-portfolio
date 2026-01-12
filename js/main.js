@@ -31,6 +31,7 @@ catThumbnails.forEach(cat => {
     cat.addEventListener('click', (e) => {
         e.preventDefault();
     const detailSource = cat.getAttribute('data-detail');
+    const absolutePath = new URL(detailSource, window.location.href).href;
     detailSheet.src = detailSource;
         master.classList.add('is-viewing-project');
     });
