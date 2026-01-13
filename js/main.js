@@ -1,6 +1,16 @@
-//Link to panel
-const links = document.querySelectorAll('.menu_list a');
 const panels = document.querySelectorAll('.main_container--right > div');
+const master = document.getElementById('master');
+const detailSheet = document.getElementById('detail-sheet');
+const btnBack = document.getElementById('btn-back');
+const allPanels = document.querySelectorAll('.main_container--right > div');
+const links = document.querySelectorAll('.menu_list a');
+const catThumbnails = document.querySelectorAll('.project_thumbnails img');
+
+const sheets = [
+    // Subimos un nivel (..) a la raíz, entramos a src/ y luego a assets/
+    new URL('../src/assets/sheet1.jpg', import.meta.url).href,
+    new URL('../src/assets/sheet2.jpg', import.meta.url).href,
+];
 
 links.forEach((link, index) => {
     link.addEventListener('click', (e) => {
@@ -19,24 +29,20 @@ document.addEventListener('click', (e) => {
     }
 });
 
-const master = document.getElementById('master');
-const catThumbnails = document.querySelectorAll('.project_thumbnails img');
-const btnBack = document.getElementById('btn-back');
-const allPanels = document.querySelectorAll('.main_container--right > div');
-const projectsPanel = document.querySelector('.bg_2'); // bg_2 = Project image gallery
-const detailSheet = document.getElementById('detail-sheet');
 
 // Click on a project thumbnail to get its details
 catThumbnails.forEach(cat => {
     cat.addEventListener('click', (e) => {
         e.preventDefault();
-    const detailSource = cat.getAttribute('data-detail');
-    const absolutePath = new URL(detailSource, window.location.href).href;
-    detailSheet.src = detailSource;
-        master.classList.add('is-viewing-project');
+        const index = cat.getAttribute('data-index');
+        const sheetUrl = sheets[index];
+
+        if (sheetUrl) {
+            detailSheet.src = sheetUrl;
+            master.classList.add('is-viewing-project');
+        }
     });
 });
-
 //Go back button, set projects thumbnails panel as active panel 
 btnBack.addEventListener('click', (e) => {
     e.stopPropagation();
