@@ -27,13 +27,24 @@ camera.position.set(0, 0, 200);
 
 // 2. Crear la forma del corazón (2D)
 const heartShape = new THREE.Shape();
-heartShape.moveTo( 25, 25 );
-heartShape.bezierCurveTo( 25, 25, 20, 0, 0, 0 );
-heartShape.bezierCurveTo( - 30, 0, - 30, 35, - 30, 35 );
-heartShape.bezierCurveTo( - 30, 55, - 10, 77, 25, 95 );
-heartShape.bezierCurveTo( 60, 77, 80, 55, 80, 35 );
-heartShape.bezierCurveTo( 80, 35, 80, 0, 50, 0 );
-heartShape.bezierCurveTo( 35, 0, 25, 25, 25, 25 );
+const pts = 5; // Número de puntas
+const radioExterior = 50;
+const radioInterior = 25;
+
+for (let i = 0; i <= pts * 2; i++) {
+  const angulo = (i / (pts * 2)) * Math.PI * 2;
+  const r = i % 2 === 0 ? radioExterior : radioInterior;
+  
+  const x = Math.cos(angulo) * r;
+  const y = Math.sin(angulo) * r;
+
+  if (i === 0) {
+    heartShape.moveTo(x, y);
+  } else {
+    heartShape.lineTo(x, y);
+  }
+}
+heartShape.closePath();
 
 const extrudeSettings = {
 	depth: 8,

@@ -3,11 +3,40 @@
   padding: 0;
   box-sizing: border-box;
 }
+@font-face {
+  font-family: "Asap-Regular";
+  src: url("../src/assets/fonts/Asap-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Asap-SemiBold";
+  src: url("../src/assets/fonts/Asap-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans-Regular";
+  src: url("../src/assets/fonts/GeneralSans-Regular.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeneralSans-Medium";
+  src: url("../src/assets/fonts/GeneralSans-Medium.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+  font-style: normal;
+}
+
 body {
   overflow: hidden;
   width: auto;
   height: auto;
-  background-color: #f5e6d3;
+  background-color: black;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -32,10 +61,24 @@ main,
   transform: translateY(-100vh);
 }
 h1 {
+  font-family: "Asap-SemiBold";
   font-size: 64px;
 }
 h2 {
+  font-family: "Asap-SemiBold";
   font-size: 24px;
+}
+h3 {
+  font-family: "Asap-Regular";
+  font-size: 16px;
+}
+p {
+  font-family: "GeneralSans-Regular";
+  font-size: 14px;
+}
+a {
+  font-family: "GeneralSans-Medium";
+  font-size: 16px;
 }
 main {
   display: flex;
@@ -123,7 +166,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f5e6d3;
+  background-color: black;
 }
 
 #detail-sheet {

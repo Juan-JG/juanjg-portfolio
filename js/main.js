@@ -8,8 +8,8 @@ const catThumbnails = document.querySelectorAll('.project_thumbnails img');
 
 const sheets = [
     // Subimos un nivel (..) a la raíz, entramos a src/ y luego a assets/
-    new URL('../src/assets/sheet1.jpg', import.meta.url).href,
-    new URL('../src/assets/sheet2.jpg', import.meta.url).href,
+    new URL('../src/assets/images/sheet1.jpg', import.meta.url).href,
+    new URL('../src/assets/images/sheet2.jpg', import.meta.url).href,
 ];
 
 links.forEach((link, index) => {
