@@ -20,17 +20,22 @@ links.forEach((link, index) => {
     });
 });
 
-//Close panel at outside click
+//Cerrar panel en outside click
 document.addEventListener('click', (e) => {
     const isClickInsidePanel = e.target.closest('.main_container--right');
     const isClickOnMenu = e.target.closest('.menu_list');
+    
     if (!isClickInsidePanel && !isClickOnMenu && e.target.id !== 'btn-back') {
+        // Quitar active de los paneles
         allPanels.forEach(panel => panel.classList.remove('active'));
+        
+        // Quitar active de los links del menu
+        links.forEach(link => link.classList.remove('active'));
     }
 });
 
 
-// Click on a project thumbnail to get its details
+// Click en thumbnail para ver detalles
 catThumbnails.forEach(cat => {
     cat.addEventListener('click', (e) => {
         e.preventDefault();
@@ -43,7 +48,7 @@ catThumbnails.forEach(cat => {
         }
     });
 });
-//Go back button, set projects thumbnails panel as active panel 
+//Al presionar volver, vuelve al panel de proyectos
 btnBack.addEventListener('click', (e) => {
     e.stopPropagation();
     master.classList.remove('is-viewing-project');
@@ -55,4 +60,19 @@ btnBack.addEventListener('click', (e) => {
     const allPanels = document.querySelectorAll('.main_container--right > div');
     allPanels.forEach(p => p.classList.remove('active'));
     projectsPanel.classList.add('active');
+});
+const navlink = document.querySelectorAll('.nav-link');
+
+links.forEach((link, index) => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Limpiar estados previos de paneles y links
+        allPanels.forEach(panel => panel.classList.remove('active'));
+        links.forEach(l => l.classList.remove('active'));
+        
+        // Activar el panel y el link actual
+        allPanels[index].classList.add('active');
+        link.classList.add('active');
+    });
 });
