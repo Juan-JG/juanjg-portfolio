@@ -78,7 +78,7 @@ h1 {
   font-family: "Asap-SemiBold";
   font-size: 64px;
   color: transparent;
-  -webkit-text-stroke: 2px #f799fd;
+  -webkit-text-stroke: 2px rgb(249, 171, 255);
   text-shadow: none;
 }
 h2 {
@@ -126,7 +126,7 @@ ul {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: #f799fd;
+  background-color: rgb(249, 171, 255);
   transform: scaleX(0);
   transition: transform 0.3s ease-in-out;
   transform-origin: center;
