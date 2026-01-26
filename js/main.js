@@ -171,8 +171,12 @@ experiences.forEach((exp) => {
 
 const thumbs = import.meta.glob(
   '../assets/images/thumb_*.jpg',
-  { eager: true, as: 'url' }
-)
+  {
+    eager: true,
+    query: '?url',
+    import: 'default'
+  }
+);
 
 const projects = [
   { thumb: thumbs['/src/assets/images/thumb_tenpo.jpg'], alt: "Tenpo" },
