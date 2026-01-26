@@ -56,7 +56,7 @@ btnBack.addEventListener('click', (e) => {
         detailSheet.src = "";
     }, 850); 
 
-    const projectsPanel = document.querySelector('.bg_2');
+    const projectsPanel = document.querySelector('.bg_3');
     const allPanels = document.querySelectorAll('.main_container--right > div');
     allPanels.forEach(p => p.classList.remove('active'));
     projectsPanel.classList.add('active');
@@ -76,3 +76,5 @@ links.forEach((link, index) => {
         link.classList.add('active');
     });
 });
+const scrollContainer = document.querySelector('.bg_2');
+scrollContainer.scrollTop = 0; // Esto resetea el scroll al inicio
