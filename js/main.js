@@ -169,17 +169,21 @@ experiences.forEach((exp) => {
 });
 
 
-const projects = [
-  { thumb: "/assets/images/thumb_tenpo.jpg", alt: "Project thumbnail: Tenpo" },
-  { thumb: "/assets/images/thumb_etenpo.jpg", alt: "Project thumbnail: Sitio de emergencias Tenpo" },
-  { thumb: "/assets/images/thumb_etiza.jpg", alt: "Project thumbnail: eTiza" },
-  { thumb: "/assets/images/thumb_ietiza.jpg", alt: "Project thumbnail: Sitio interactivo eTiza" },
-  { thumb: "/assets/images/thumb_ecopunto.jpg", alt: "Project thumbnail: Logo Ecopunto" },
-  { thumb: "/assets/images/thumb_navbar.jpg", alt: "Project thumbnail: Logo Navbar" },
-  { thumb: "/assets/images/thumb_dts.jpg", alt: "Project thumbnail: Logo DTS" },
-  { thumb: "/assets/images/thumb_nua.jpg", alt: "Project thumbnail: Logo NUA" },
-];
+const thumbs = import.meta.glob(
+  '../assets/images/thumb_*.jpg',
+  { eager: true, as: 'url' }
+)
 
+const projects = [
+  { thumb: thumbs['../assets/images/thumb_tenpo.jpg'], alt: "Tenpo" },
+  { thumb: thumbs['../assets/images/thumb_etenpo.jpg'], alt: "Emergencias Tenpo" },
+  { thumb: thumbs['../assets/images/thumb_etiza.jpg'], alt: "eTiza" },
+  { thumb: thumbs['../assets/images/thumb_ietiza.jpg'], alt: "iTiza" },
+  { thumb: thumbs['../assets/images/thumb_ecopunto.jpg'], alt: "Ecopunto" },
+  { thumb: thumbs['../assets/images/thumb_navbar.jpg'], alt: "Navbar" },
+  { thumb: thumbs['../assets/images/thumb_dts.jpg'], alt: "DTS" },
+  { thumb: thumbs['../assets/images/thumb_nua.jpg'], alt: "NUA" }
+]
 projects.forEach((project, index) => {
   const img = document.createElement("img");
   img.src = project.thumb;
