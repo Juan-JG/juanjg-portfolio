@@ -173,13 +173,12 @@ const thumbs = import.meta.glob(
   { eager: true, query: '?url', import: 'default' }
 );
 
-const detailImages = import.meta.glob(
-  '/src/assets/images/detail*_*.jpg',
-  { eager: true, query: '?url', import: 'default' }
-);
+// Obtener las keys y ordenarlas alfabéticamente
+const sortedKeys = Object.keys(thumbs).sort();
 
-const projects = Object.values(thumbs).map((url, index) => ({
-  thumb: url,
+// Crear array de proyectos en orden
+const projects = sortedKeys.map((key, index) => ({
+  thumb: thumbs[key],
   alt: `Project ${index + 1}`
 }));
 
@@ -191,6 +190,11 @@ projects.forEach((project, index) => {
   img.className = "project-thumb-btn";
   projectsContainer.appendChild(img);
 });
+
+const detailImages = import.meta.glob(
+  '/src/assets/images/detail*_*.jpg',
+  { eager: true, query: '?url', import: 'default' }
+);
 
 const projectsData = [
   {
@@ -217,7 +221,6 @@ const projectsData = [
       detailImages['/src/assets/images/detail2_4.jpg']
     ]
   },
-  // Repite para los demás proyectos, asegurándote que las keys coincidan
 ];
 
 
