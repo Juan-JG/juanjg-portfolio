@@ -170,14 +170,14 @@ experiences.forEach((exp) => {
 
 
 const projects = [
-  { thumb: "./assets/images/thumb_tenpo.jpg", alt: "Project thumbnail: Tenpo" },
-  { thumb: "./assets/images/thumb_etenpo.jpg", alt: "Project thumbnail: Sitio de emergencias Tenpo" },
-  { thumb: "./assets/images/thumb_etiza.jpg", alt: "Project thumbnail: eTiza" },
-  { thumb: "./assets/images/thumb_ietiza.jpg", alt: "Project thumbnail: Sitio interactivo eTiza" },
-  { thumb: "./assets/images/thumb_ecopunto.jpg", alt: "Project thumbnail: Logo Ecopunto" },
-  { thumb: "./assets/images/thumb_navbar.jpg", alt: "Project thumbnail: Logo Navbar" },
-  { thumb: "./assets/images/thumb_dts.jpg", alt: "Project thumbnail: Logo DTS" },
-  { thumb: "./assets/images/thumb_nua.jpg", alt: "Project thumbnail: Logo NUA" },
+  { thumb: "/assets/images/thumb_tenpo.jpg", alt: "Project thumbnail: Tenpo" },
+  { thumb: "/assets/images/thumb_etenpo.jpg", alt: "Project thumbnail: Sitio de emergencias Tenpo" },
+  { thumb: "/assets/images/thumb_etiza.jpg", alt: "Project thumbnail: eTiza" },
+  { thumb: "/assets/images/thumb_ietiza.jpg", alt: "Project thumbnail: Sitio interactivo eTiza" },
+  { thumb: "/assets/images/thumb_ecopunto.jpg", alt: "Project thumbnail: Logo Ecopunto" },
+  { thumb: "/assets/images/thumb_navbar.jpg", alt: "Project thumbnail: Logo Navbar" },
+  { thumb: "/assets/images/thumb_dts.jpg", alt: "Project thumbnail: Logo DTS" },
+  { thumb: "/assets/images/thumb_nua.jpg", alt: "Project thumbnail: Logo NUA" },
 ];
 
 projects.forEach((project, index) => {
