@@ -169,23 +169,25 @@ experiences.forEach((exp) => {
 });
 
 
+// 1️⃣ Glob de thumbnails
 const thumbs = import.meta.glob(
   '/src/assets/images/thumb_*.jpg',
-  {
-    eager: true,
-    query: '?url',
-    import: 'default'
-  }
+  { eager: true, query: '?url', import: 'default' }
 );
 
-console.log(thumbs);
-console.log(Object.keys(thumbs));
+// 2️⃣ Glob de todas las imágenes de detalle
+const detailImages = import.meta.glob(
+  '/src/assets/images/*.{jpg,png}',
+  { eager: true, query: '?url', import: 'default' }
+);
 
+// 3️⃣ Construir array de projects dinámicamente
 const projects = Object.values(thumbs).map((url, index) => ({
   thumb: url,
   alt: `Project ${index + 1}`
 }));
 
+// 4️⃣ Renderizar thumbnails
 projects.forEach((project, index) => {
   const img = document.createElement("img");
   img.src = project.thumb;
@@ -195,7 +197,7 @@ projects.forEach((project, index) => {
   projectsContainer.appendChild(img);
 });
 
-
+// 5️⃣ Array de datos de proyectos con imágenes “procesadas” por Vite
 const projectsData = [
   {
     title: "eTiza Soluciones 1",
@@ -203,10 +205,10 @@ const projectsData = [
     description: "Creación de más de 300 recursos educativos multimedia.",
     tags: ["Adobe CC", "JavaScript", "E-learning"],
     images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
+      detailImages['/src/assets/images/detail1_p1.jpg'],
+      detailImages['/src/assets/images/eTiza_2.jpg'],
+      detailImages['/src/assets/images/eTiza_3.jpg'],
+      detailImages['/src/assets/images/eTiza_4.jpg']
     ]
   },
   {
@@ -215,85 +217,15 @@ const projectsData = [
     description: "Creación de más de 300 recursos educativos multimedia.",
     tags: ["Adobe CC", "JavaScript", "E-learning"],
     images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
+      detailImages['/src/assets/images/detail1_p1.jpg'],
+      detailImages['/src/assets/images/eTiza_2.jpg'],
+      detailImages['/src/assets/images/eTiza_3.jpg'],
+      detailImages['/src/assets/images/eTiza_4.jpg']
     ]
   },
-  {
-    title: "eTiza Soluciones 3",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
-    images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
-    ]
-  },
-  {
-    title: "eTiza Soluciones 4",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
-    images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
-    ]
-  },
-  {
-    title: "eTiza Soluciones 5",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
-    images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
-    ]
-  },
-  {
-    title: "eTiza Soluciones 6",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
-    images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
-    ]
-  },
-  {
-    title: "eTiza Soluciones 7",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
-    images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
-    ]
-  },
-  {
-    title: "eTiza Soluciones 8",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
-    images: [
-      'assets/images/detail1_p1.jpg',
-      'assets/images/eTiza_2.jpg',
-      'assets/images/eTiza_3.jpg',
-      'assets/images/eTiza_4.jpg'
-    ]
-  }
+  // ... agrega los demás proyectos igual, usando detailImages['/src/assets/images/...']
 ];
+
 
 
 function openProject(index) {
