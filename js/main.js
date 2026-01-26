@@ -177,7 +177,7 @@ const thumbs = import.meta.glob(
 
 // 2️⃣ Glob de todas las imágenes de detalle
 const detailImages = import.meta.glob(
-  '/src/assets/images/*.{jpg,png}',
+  '/src/assets/images/detail*_*.jpg',
   { eager: true, query: '?url', import: 'default' }
 );
 
@@ -197,7 +197,7 @@ projects.forEach((project, index) => {
   projectsContainer.appendChild(img);
 });
 
-// 5️⃣ Array de datos de proyectos con imágenes “procesadas” por Vite
+// 5️⃣ Array de datos de proyectos con imágenes dinámicas
 const projectsData = [
   {
     title: "eTiza Soluciones 1",
@@ -206,24 +206,24 @@ const projectsData = [
     tags: ["Adobe CC", "JavaScript", "E-learning"],
     images: [
       detailImages['/src/assets/images/detail1_p1.jpg'],
-      detailImages['/src/assets/images/eTiza_2.jpg'],
-      detailImages['/src/assets/images/eTiza_3.jpg'],
-      detailImages['/src/assets/images/eTiza_4.jpg']
+      detailImages['/src/assets/images/detail1_2.jpg'],
+      detailImages['/src/assets/images/detail1_3.jpg'],
+      detailImages['/src/assets/images/detail1_4.jpg']
     ]
   },
   {
     title: "eTiza Soluciones 2",
     year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
+    description: "Proyecto 2 descripción...",
     tags: ["Adobe CC", "JavaScript", "E-learning"],
     images: [
-      detailImages['/src/assets/images/detail1_p1.jpg'],
-      detailImages['/src/assets/images/eTiza_2.jpg'],
-      detailImages['/src/assets/images/eTiza_3.jpg'],
-      detailImages['/src/assets/images/eTiza_4.jpg']
+      detailImages['/src/assets/images/detail2_1.jpg'],
+      detailImages['/src/assets/images/detail2_2.jpg'],
+      detailImages['/src/assets/images/detail2_3.jpg'],
+      detailImages['/src/assets/images/detail2_4.jpg']
     ]
   },
-  // ... agrega los demás proyectos igual, usando detailImages['/src/assets/images/...']
+  // Repite para los demás proyectos, asegurándote que las keys coincidan
 ];
 
 
