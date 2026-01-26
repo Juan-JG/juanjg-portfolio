@@ -168,26 +168,21 @@ experiences.forEach((exp) => {
   experienceContainer.appendChild(item);
 });
 
-
-// 1️⃣ Glob de thumbnails
 const thumbs = import.meta.glob(
   '/src/assets/images/thumb_*.jpg',
   { eager: true, query: '?url', import: 'default' }
 );
 
-// 2️⃣ Glob de todas las imágenes de detalle
 const detailImages = import.meta.glob(
   '/src/assets/images/detail*_*.jpg',
   { eager: true, query: '?url', import: 'default' }
 );
 
-// 3️⃣ Construir array de projects dinámicamente
 const projects = Object.values(thumbs).map((url, index) => ({
   thumb: url,
   alt: `Project ${index + 1}`
 }));
 
-// 4️⃣ Renderizar thumbnails
 projects.forEach((project, index) => {
   const img = document.createElement("img");
   img.src = project.thumb;
@@ -197,7 +192,6 @@ projects.forEach((project, index) => {
   projectsContainer.appendChild(img);
 });
 
-// 5️⃣ Array de datos de proyectos con imágenes dinámicas
 const projectsData = [
   {
     title: "eTiza Soluciones 1",
@@ -206,7 +200,7 @@ const projectsData = [
     tags: ["Adobe CC", "JavaScript", "E-learning"],
     images: [
       detailImages['/src/assets/images/detail1_p1.jpg'],
-      detailImages['/src/assets/images/detail1_2.jpg'],
+      detailImages['/src/assets/images/detail2_p1.jpg'],
       detailImages['/src/assets/images/detail1_3.jpg'],
       detailImages['/src/assets/images/detail1_4.jpg']
     ]
