@@ -175,15 +175,15 @@ const thumbs = import.meta.glob(
 )
 
 const projects = [
-  { thumb: thumbs['../assets/images/thumb_tenpo.jpg'], alt: "Tenpo" },
-  { thumb: thumbs['../assets/images/thumb_etenpo.jpg'], alt: "Emergencias Tenpo" },
-  { thumb: thumbs['../assets/images/thumb_etiza.jpg'], alt: "eTiza" },
-  { thumb: thumbs['../assets/images/thumb_ietiza.jpg'], alt: "iTiza" },
-  { thumb: thumbs['../assets/images/thumb_ecopunto.jpg'], alt: "Ecopunto" },
-  { thumb: thumbs['../assets/images/thumb_navbar.jpg'], alt: "Navbar" },
-  { thumb: thumbs['../assets/images/thumb_dts.jpg'], alt: "DTS" },
-  { thumb: thumbs['../assets/images/thumb_nua.jpg'], alt: "NUA" }
-]
+  { thumb: thumbs['/src/assets/images/thumb_tenpo.jpg'], alt: "Tenpo" },
+  { thumb: thumbs['/src/assets/images/thumb_etenpo.jpg'], alt: "Emergencias Tenpo" },
+  { thumb: thumbs['/src/assets/images/thumb_etiza.jpg'], alt: "eTiza" },
+  { thumb: thumbs['/src/assets/images/thumb_ietiza.jpg'], alt: "iTiza" },
+  { thumb: thumbs['/src/assets/images/thumb_ecopunto.jpg'], alt: "Ecopunto" },
+  { thumb: thumbs['/src/assets/images/thumb_navbar.jpg'], alt: "Navbar" },
+  { thumb: thumbs['/src/assets/images/thumb_dts.jpg'], alt: "DTS" },
+  { thumb: thumbs['/src/assets/images/thumb_nua.jpg'], alt: "NUA" }
+];
 projects.forEach((project, index) => {
   const img = document.createElement("img");
   img.src = project.thumb;
