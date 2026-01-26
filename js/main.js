@@ -170,7 +170,7 @@ experiences.forEach((exp) => {
 
 
 const thumbs = import.meta.glob(
-  '../assets/images/thumb_*.jpg',
+  '/src/assets/images/thumb_*.jpg',
   {
     eager: true,
     query: '?url',
@@ -178,16 +178,13 @@ const thumbs = import.meta.glob(
   }
 );
 
-const projects = [
-  { thumb: thumbs['../assets/images/thumb_tenpo.jpg'], alt: "Tenpo" },
-  { thumb: thumbs['../assets/images/thumb_etenpo.jpg'], alt: "Emergencias Tenpo" },
-  { thumb: thumbs['../assets/images/thumb_etiza.jpg'], alt: "eTiza" },
-  { thumb: thumbs['../assets/images/thumb_ietiza.jpg'], alt: "iTiza" },
-  { thumb: thumbs['../assets/images/thumb_ecopunto.jpg'], alt: "Ecopunto" },
-  { thumb: thumbs['../assets/images/thumb_navbar.jpg'], alt: "Navbar" },
-  { thumb: thumbs['../assets/images/thumb_dts.jpg'], alt: "DTS" },
-  { thumb: thumbs['../assets/images/thumb_nua.jpg'], alt: "NUA" }
-];
+console.log(thumbs);
+console.log(Object.keys(thumbs));
+
+const projects = Object.values(thumbs).map((url, index) => ({
+  thumb: url,
+  alt: `Project ${index + 1}`
+}));
 
 projects.forEach((project, index) => {
   const img = document.createElement("img");
