@@ -1,47 +1,49 @@
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* --- FUENTES --- */
+/* =========================
+   FONTS
+========================= */
 @font-face {
   font-family: "Asap-Regular";
   src: url("../src/assets/fonts/Asap-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
-  font-style: normal;
 }
 @font-face {
   font-family: "Asap-SemiBold";
   src: url("../src/assets/fonts/Asap-SemiBold.woff2") format("woff2");
   font-weight: 600;
   font-display: swap;
-  font-style: normal;
 }
 @font-face {
   font-family: "GeneralSans-Regular";
   src: url("../src/assets/fonts/GeneralSans-Regular.woff2") format("woff2");
   font-weight: 500;
   font-display: swap;
-  font-style: normal;
 }
 @font-face {
   font-family: "GeneralSans-Light";
   src: url("../src/assets/fonts/GeneralSans-Light.woff2") format("woff2");
   font-weight: 300;
   font-display: swap;
-  font-style: normal;
 }
 @font-face {
   font-family: "GeneralSans-Extralight";
   src: url("../src/assets/fonts/GeneralSans-Extralight.woff2") format("woff2");
   font-weight: 200;
   font-display: swap;
-  font-style: normal;
 }
 
-/* --- ESTRUCTURA BASE --- */
+/* =========================
+   BASE LAYOUT
+========================= */
 body {
   overflow: hidden;
   background: linear-gradient(180deg, #0f0b0f 0%, #130d13 100%);
@@ -50,9 +52,11 @@ body {
   flex-direction: column;
 }
 
-.master-wrapper {
+#master-wrapper {
   width: 100%;
   height: 200vh;
+  display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -60,10 +64,11 @@ body {
   will-change: transform;
 }
 
-main,
+#main-content,
 #project-detail {
   width: 100vw;
   height: 100vh;
+  flex-shrink: 0;
   position: relative;
   overflow: hidden;
 }
@@ -72,7 +77,9 @@ main,
   transform: translateY(-100vh);
 }
 
-/* --- TIPOGRAFÍA --- */
+/* =========================
+   TYPOGRAPHY
+========================= */
 h1 {
   font-family: "Asap-SemiBold";
   font-size: 64px;
@@ -92,13 +99,15 @@ p {
   color: rgb(240, 240, 240);
 }
 
-b {
+strong {
   font-family: "GeneralSans-Regular";
   font-size: 18px;
   color: #f799fd;
 }
 
-/* --- NAVEGACIÓN --- */
+/* =========================
+   NAVIGATION
+========================= */
 .nav-link {
   font-family: "GeneralSans-Regular";
   font-size: 16px;
@@ -133,10 +142,11 @@ b {
   transform: scaleX(1);
 }
 
-/* --- CONTENEDORES PRINCIPALES --- */
-main {
+/* =========================
+   MAIN PANELS
+========================= */
+#main-content {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 95vw;
   height: 90vh;
@@ -147,89 +157,78 @@ main {
   z-index: 1;
 }
 
-.main_container--left {
+.main-container-left {
   display: flex;
   flex-direction: column;
   gap: 48px;
 }
 
-/* --- PANEL DERECHO (CORREGIDO) --- */
-.main_container--right {
+.main-container-right {
   position: relative;
   width: 600px;
   height: 100%;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.05);
   border-radius: 1rem;
-  pointer-events: none;
   z-index: 20;
 }
 
-.main_container--right > div {
+.main-container-right > section {
   position: absolute;
   top: 0;
   right: -100%;
   width: 100%;
-  height: 100%;
+  height: auto;
+  max-height: 100%;
   transition: right 0.4s ease-in-out;
   background: rgba(0, 0, 0, 0.6);
-  padding: 30px 20px; /* Más espacio arriba */
-  pointer-events: auto;
   display: flex;
   flex-direction: column;
-  /* CAMBIO CLAVE: Empezar desde arriba para que no se corte el scroll */
   justify-content: flex-start;
-  align-items: stretch;
 }
 
-.main_container--right > div.active {
+.main-container-right > section.active {
   right: 0;
 }
-.bg_1 {
-  height: auto !important;
+
+/* =========================
+   ABOUT
+========================= */
+.section-about {
   border-radius: 2rem;
   gap: 30px;
+  padding: 20px;
 }
-/* --- SECCIÓN EXPERIENCIA (CORREGIDA) --- */
-.bg_2 {
+
+/* =========================
+   EXPERIENCE
+========================= */
+.section-experience {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   width: 100%;
-  height: 100%; /* Ajustado al padre */
+  height: 100%;
   overflow-y: auto;
-  padding-bottom: 20px; /* Espacio al final del scroll */
 }
 
 .experience-container {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   background-color: #2b1625;
   padding: 1.5rem;
+  margin: 20px;
   border-radius: 0.5rem;
-  flex-shrink: 0; /* Evita que las tarjetas se aplasten */
-}
-.experience_link {
-  text-decoration: none; /* Quita el subrayado */
-  color: inherit; /* Hereda el color del texto original */
-  display: block; /* Importante: hace que todo el link ocupe el ancho */
+  text-decoration: none;
+  color: inherit;
   transition:
     transform 0.3s ease,
     filter 0.3s ease;
-  flex-shrink: 0; /* Mantiene la consistencia con el contenedor flex */
 }
 
-.experience_link:hover {
-  /* Efecto de iluminación */
+.experience-container:hover {
   filter: brightness(1.3);
-  /* Efecto opcional: un ligero levantamiento */
+  background-color: #3d1f35;
 }
 
-/* Si quieres que el fondo también cambie ligeramente al pasar el mouse */
-.experience_link:hover .experience-container {
-  background-color: #3d1f35; /* Un tono un poco más claro que tu #2b1625 */
-}
 .job-container {
   display: flex;
   flex-direction: column;
@@ -239,7 +238,6 @@ main {
 
 .ribbon-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -253,27 +251,26 @@ main {
 .ribbon p {
   color: #f799fd;
   font-size: 16px;
-  font-weight: 400;
-}
-.bg_3 {
-  width: 100%;
-  height: auto !important;
-  border-radius: 2rem;
-  padding: 10px;
-  display: block; /* Cambiamos a block para que el grid interno mande */
-}
-.project_thumbnails {
-  display: grid;
-  /* Crea columnas de mínimo 150px que llenan el espacio disponible */
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 15px;
-  width: 100%;
 }
 
-.project_thumbnails img {
+/* =========================
+   PROJECTS
+========================= */
+.section-projects {
+  border-radius: 2rem;
+  padding: 20px;
+}
+
+.project-thumbnails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.project-thumbnails img {
   width: 100%;
-  height: 150px; /* Altura fija para que todas sean iguales */
-  object-fit: cover; /* Recorta la imagen para que llene el cuadro sin deformarse */
+  height: 150px;
+  object-fit: cover;
   border-radius: 8px;
   cursor: pointer;
   transition:
@@ -283,36 +280,42 @@ main {
   border: 2px solid transparent;
 }
 
-.project_thumbnails img:hover {
+.project-thumbnails img:hover {
   transform: scale(1.05);
   filter: brightness(1.2);
   border: 2px solid #f799fd;
 }
-.bg_4 {
-  width: 100%;
-  height: auto !important;
+
+/* =========================
+   CONTACT
+========================= */
+.section-contact {
+  border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  padding: 10px;
+  padding: 20px;
 }
 
 .contact-grid {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  width: 100%;
 }
 
 .contact-card {
   display: flex;
   align-items: center;
   gap: 20px;
-  background-color: #2b1625; /* El mismo de tus tarjetas */
+  background-color: #2b1625;
   padding: 1.2rem;
   border-radius: 0.75rem;
   text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  background-color: #3d1f35;
+  filter: brightness(1.2);
 }
 
 .contact-icon {
@@ -324,59 +327,148 @@ main {
   justify-content: center;
   border-radius: 10px;
   border: 1px solid rgba(247, 153, 253, 0.2);
-  flex-shrink: 0; /* Evita que el cuadro del icono se aplaste */
-  overflow: hidden; /* Por si la imagen es muy grande */
 }
 
 .contact-icon img {
-  width: 60%; /* Tamaño relativo al contenedor para que respire */
+  width: 60%;
   height: 60%;
-  object-fit: contain; /* Mantiene la proporción del logo */
-  /* Si tus iconos son negros, puedes usar filter para aclararlos:
-     filter: brightness(0) invert(1); */
+  object-fit: contain;
 }
 
-/* Efecto Hover extra para el icono */
-.contact-card:hover .contact-icon {
-  border-color: #f799fd;
-  box-shadow: 0 0 10px rgba(247, 153, 253, 0.2);
+/* =========================
+   PROJECT DETAIL
+========================= */
+#project-detail {
+  background: linear-gradient(135deg, #0f0b0f 0%, #1a141a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
 }
 
-.contact-info {
+.detail-container {
+  display: flex;
+  width: 90vw;
+  max-width: 1200px;
+  height: 80vh;
+  gap: 50px;
+  align-items: center;
+}
+
+.project-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
-.contact-info b {
-  font-size: 16px;
-  color: #f799fd; /* Tu color rosa neón */
-  margin-bottom: 2px;
+.project-info h3 {
+  font-size: 48px;
+  color: #f799fd;
 }
 
-.contact-info p {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 1);
-  margin: 0;
+.detail-description {
+  border-left: 2px solid #f799fd;
+  padding-left: 20px;
+  line-height: 1.6;
 }
 
-/* Efectos Hover */
-.contact-card:hover {
-  background-color: #3d1f35;
-  border-color: #f799fd;
-  filter: brightness(1.2);
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-/* Estilo especial para el CV */
-.cv-special {
-  margin-top: 10px;
-  background: linear-gradient(90deg, #2b1625 0%, #3d1f35 100%);
+.detail-media {
+  flex: 1.5;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(247, 153, 253, 0.1);
 }
-/* --- OTROS --- */
-#container-3d {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.project-grid-display {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 15px;
   width: 100%;
   height: 100%;
+}
+
+.project-grid-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: zoom-in;
+  border: 1px solid rgba(247, 153, 253, 0.1);
+}
+
+#btn-back {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid #f799fd;
+  color: #f799fd;
+  padding: 10px 25px;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+#lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+#lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 4px;
+}
+
+/* =========================
+   UTILITIES
+========================= */
+.hidden {
+  display: none;
+}
+
+#container-3d {
+  position: absolute;
+  inset: 0;
   z-index: -1;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .detail-container {
+    flex-direction: column-reverse;
+    overflow-y: auto;
+  }
+
+  #btn-back {
+    align-self: center;
+  }
 }
