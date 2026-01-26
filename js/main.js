@@ -169,7 +169,7 @@ experiences.forEach((exp) => {
 });
 
 const thumbs = import.meta.glob(
-  '/src/assets/images/thumb_*.jpg',
+  '/src/assets/images/thumb*_*.jpg',
   { eager: true, query: '?url', import: 'default' }
 );
 
