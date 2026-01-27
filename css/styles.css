@@ -93,6 +93,13 @@ h2 {
   color: white;
 }
 
+h3 {
+  font-family: "Asap-SemiBold";
+  font-size: 48px;
+  color: transparent;
+  -webkit-text-stroke: 2px #f9abff;
+}
+
 p {
   font-family: "GeneralSans-Extralight";
   font-size: 16px;
@@ -420,9 +427,9 @@ strong {
   gap: 20px;
 }
 
-.project-info h3 {
-  font-size: 48px;
-  color: #f799fd;
+#detail-year {
+  font-weight: 600;
+  font-size: 24px;
 }
 
 .detail-description {
@@ -445,7 +452,6 @@ strong {
   align-items: center;
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(247, 153, 253, 0.1);
 }
 
 .project-grid-display {
@@ -463,18 +469,34 @@ strong {
   object-fit: cover;
   border-radius: 8px;
   cursor: zoom-in;
-  border: 1px solid rgba(247, 153, 253, 0.1);
 }
 
-#btn-back {
-  align-self: flex-start;
-  background: transparent;
-  border: 1px solid #f799fd;
-  color: #f799fd;
-  padding: 10px 25px;
-  border-radius: 2rem;
+.zoomable {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: filter 0.25s ease;
+}
+
+.zoomable:hover {
+  filter: brightness(1.2);
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+}
+#btn-back {
+  width: 64px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+#btn-back:hover {
+  transform: scale(1.1);
 }
 
 /* =========================
@@ -496,6 +518,7 @@ strong {
 #lightbox-overlay.active {
   opacity: 1;
   pointer-events: auto;
+  cursor: zoom-out;
 }
 
 #lightbox-img {

@@ -205,21 +205,21 @@ projects.forEach((project, index) => {
 });
 
 const detailImages = import.meta.glob(
-  '/src/assets/images/detail*_*.jpg',
+  '/src/assets/images/detail*_*.png',
   { eager: true, query: '?url', import: 'default' }
 );
 
 const projectsData = [
   {
-    title: "eTiza Soluciones 1",
-    year: "2023 - 2024",
-    description: "Creación de más de 300 recursos educativos multimedia.",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
+    title: "Tenpo",
+    year: "2025",
+    description: "Spearheaded the end-to-end development and deployment of 10+ high-conversion landing pages using Webflow, enhanced with custom HTML/CSS and JavaScript for advanced functionality. I specialized in bridging the gap between design and technical execution, collaborating closely with UX/UI teams to launch a mission-critical emergency portal focused on accessibility and performance. Beyond visual development, I architected a seamless content workflow by integrating Azure-hosted legal assets into the Webflow CMS and managed monthly feature updates under strict QA and version control standards. My proactive approach to resolving production incidents and working within CI/CD pipelines ensured a robust, scalable, and high-quality user experience.",
+    tags: ["Webflow CMS", "JavaScript (ES6+)", "HTML5 & CSS3", "Azure Cloud Storage", "UI/UX", "QA", "Performance Optimization", "Accessibility" ],
     images: [
-      detailImages['/src/assets/images/detail1_p1.jpg'],
-      detailImages['/src/assets/images/detail2_p1.jpg'],
-      detailImages['/src/assets/images/detail1_3.jpg'],
-      detailImages['/src/assets/images/detail1_4.jpg']
+      detailImages['/src/assets/images/detail1_p1.png'],
+      detailImages['/src/assets/images/detail2_p1.png'],
+      detailImages['/src/assets/images/detail3_p1.png'],
+      detailImages['/src/assets/images/detail4_p1.png']
     ]
   },
   {
@@ -275,13 +275,21 @@ gridContainer.addEventListener('click', (e) => {
 });
 
 
-lightbox.addEventListener('click', (e) => {
-    if (e.target !== lightboxImg) {
+lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+    setTimeout(() => {
+        if (!lightbox.classList.contains('active')) {
+            lightbox.classList.add('hidden');
+        }
+    }, 400);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         lightbox.classList.remove('active');
         setTimeout(() => lightbox.classList.add('hidden'), 400);
     }
 });
-
 
 btnBack.addEventListener('click', (e) => {
     e.stopPropagation();
