@@ -117,7 +117,7 @@ const Experience = {
         this.controls.autoRotateSpeed = 0.04;
         this.controls.enableZoom = true;
         this.controls.enablePan = false;
-        this.controls.maxDistance = 4000;
+        this.controls.maxDistance = 1000;
         this.controls.minDistance = 100;
         this.controls.mouseButtons = {
             LEFT: null, 

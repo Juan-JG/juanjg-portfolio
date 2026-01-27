@@ -12,6 +12,19 @@ const lightboxImg = document.getElementById('lightbox-img');
 
 const experienceContainer = document.getElementById("experience-list");
 
+window.addEventListener('load', function () {
+    const loaderWrapper = document.getElementById('loader-wrapper');
+    const content = document.getElementById('content');
+    loaderWrapper.classList.add('fade-out');
+    
+    if (content) {
+        content.style.display = 'block';
+    }
+
+    setTimeout(() => {
+        loaderWrapper.remove();
+    }, 1000);
+});
 
 links.forEach((link, index) => {
     link.addEventListener('click', (e) => {
