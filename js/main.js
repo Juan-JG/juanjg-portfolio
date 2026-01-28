@@ -205,7 +205,7 @@ projects.forEach((project, index) => {
 });
 
 const detailImages = import.meta.glob(
-  '/src/assets/images/detail*_*.png',
+  '/src/assets/images/detail*_*.webp',
   { eager: true, query: '?url', import: 'default' }
 );
 
@@ -216,24 +216,46 @@ const projectsData = [
     description: "Spearheaded the end-to-end development and deployment of 10+ high-conversion landing pages using Webflow, enhanced with custom HTML/CSS and JavaScript for advanced functionality. I specialized in bridging the gap between design and technical execution, collaborating closely with UX/UI teams to launch a mission-critical emergency portal focused on accessibility and performance. Beyond visual development, I architected a seamless content workflow by integrating Azure-hosted legal assets into the Webflow CMS and managed monthly feature updates under strict QA and version control standards. My proactive approach to resolving production incidents and working within CI/CD pipelines ensured a robust, scalable, and high-quality user experience.",
     tags: ["Webflow CMS", "JavaScript (ES6+)", "HTML5 & CSS3", "Azure Cloud Storage", "UI/UX", "QA", "Performance Optimization", "Accessibility" ],
     images: [
-      detailImages['/src/assets/images/detail1_p1.png'],
-      detailImages['/src/assets/images/detail2_p1.png'],
-      detailImages['/src/assets/images/detail3_p1.png'],
-      detailImages['/src/assets/images/detail4_p1.png']
+      detailImages['/src/assets/images/detail1_p1.webp'],
+      detailImages['/src/assets/images/detail2_p1.webp'],
+      detailImages['/src/assets/images/detail3_p1.webp'],
+      detailImages['/src/assets/images/detail4_p1.webp']
     ]
   },
   {
-    title: "eTiza Soluciones 2",
-    year: "2023 - 2024",
-    description: "Proyecto 2 descripción...",
-    tags: ["Adobe CC", "JavaScript", "E-learning"],
+    title: "Tenpo Banking Emergency Portal",
+    year: "2025",
+    description: "I led the UI design and technical implementation of Tenpo’s banking emergency portal, a mission-critical platform requiring high availability and precision. Working at the intersection of product and engineering, I architected the site’s information hierarchy and interaction flows, translating high-fidelity Figma prototypes into a robust Webflow production environment. My role focused on upholding strict corporate design systems while proactively integrating UX enhancements that improved navigation and clarity for users in high-stress financial scenarios. By bridging the gap between design vision and technical deployment, I ensured a seamless, responsive, and secure digital experience that met rigorous brand and performance standards.",
+    tags: ["Webflow", "Figma", "UI/UX", "Design Systems", "JavaScript", "Responsive Design", "Prototyping"],
     images: [
-      detailImages['/src/assets/images/detail2_1.jpg'],
-      detailImages['/src/assets/images/detail2_2.jpg'],
-      detailImages['/src/assets/images/detail2_3.jpg'],
-      detailImages['/src/assets/images/detail2_4.jpg']
+      detailImages['/src/assets/images/detail1_p2.webp'],
+      detailImages['/src/assets/images/detail2_p2.webp'],
+      detailImages['/src/assets/images/detail3_p2.webp'],
+      detailImages['/src/assets/images/detail4_p2.webp']
     ]
   },
+  {
+    title: "eTiza",
+    year: "2023 - 2024",
+    description: "I orchestrated the comprehensive redesign of a technology-driven corporate website, strategically integrating AI-focused visual metaphors and online education motifs to strengthen the brand’s digital identity. Utilizing Figma for rapid prototyping and iterative testing, I transitioned the conceptual vision into a high-performance frontend using HTML, CSS, and JavaScript, ensuring a fully responsive and accessible experience. Beyond the technical build, I acted as a technical mentor by training the internal team on web development fundamentals and Git version control, successfully establishing a more structured, collaborative, and professionalized engineering workflow.",
+    tags: ["HTML5 & CSS3", "JavaScript", "Figma", "Git & GitHub", "UI/UX", "Team Mentorship", "Prototyping"],
+    images: [
+      detailImages['/src/assets/images/detail1_p3.webp'],
+      detailImages['/src/assets/images/detail2_p3.webp'],
+      detailImages['/src/assets/images/detail3_p3.webp']
+    ]
+  },
+  {
+    title: "eTiza Interactive Website",
+    year: "2024",
+    description: "I pioneered the development of interactive microsites by integrating custom 3D assets into the browser, leveraging Three.js to create seamless, immersive user experiences. This initiative involved deep R&D into WebGL capabilities, focusing on the real-time rendering of complex models authored in Blender. By bridging the gap between 3D animation and frontend engineering, I successfully deployed functional prototypes that allow for fluid, low-latency user interaction with spatial environments. The result is a sophisticated fusion of visual storytelling and high-performance web development that pushes the boundaries of standard UI patterns.",
+    tags: ["Three.js", "WebGL", "Blender", "3D Modeling & Animation", "JavaScript (ES6+)", "Interactive Design"],
+    images: [
+      detailImages['/src/assets/images/detail1_p4.webp'],
+      detailImages['/src/assets/images/detail2_p4.webp'],
+      detailImages['/src/assets/images/detail3_p4.webp']
+    ]
+  }
 ];
 
 
